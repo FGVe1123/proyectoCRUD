@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('modelo');
             $table->integer('precio');
-            $table->timestamps();
+            
         });
     }
 

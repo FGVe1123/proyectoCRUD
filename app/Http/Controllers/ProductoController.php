@@ -6,6 +6,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 
 
+
 class ProductoController extends Controller
 {
     /**
@@ -28,7 +29,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('productos.productosCreate');
+        //$producto = Producto::all();
+        return view('productos.productosCreate');//, compact('producto'));
     }
 
 
@@ -43,15 +45,19 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+        dd($_REQUEST);
         $request -> validate([
-            'existencia' => 'required',
+            'existencia' => 'required|integer',
             'nombre' => 'required|max255',
-            'modelo' => ' required',
-            'precio' => 'required',
+            'modelo' => ' required|max255',
+            'precio' => 'required|integer',
         ]);
+
+
         Producto::create($request->all());
-     
-        return view('productos.productosIndex');
+
+        return redirect('/producto');
     }
 
 
@@ -66,7 +72,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        return view('producto.productosShow', compact('producto'));
+        return view('productos.productosShow', compact('producto'));
     }
 
 
@@ -99,6 +105,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
+        dd($request);
         $request -> validate([
             'existencia' => 'required',
             'nombre' => 'required|max255',
@@ -106,14 +113,19 @@ class ProductoController extends Controller
             'precio' => 'required',
         ]);
 
+
+/*  
+        
         $producto->existencia = $request->existencia;
         $producto-> nombre= $request->nombre;
         $producto-> modelo= $request->modelo;
         $producto-> precio= $request->precio;
 
         $producto->save();
+*/
+        Producto::where('id', $producto->id)->update($request->except('_token', '_method'));
 
-        return redirect ('productos.productosIndex');
+        return redirect ('/producto');
 
     }
 
@@ -132,6 +144,6 @@ class ProductoController extends Controller
     {
         $producto->delete();
 
-        return redirect(productos.productosIndex);
+        return redirect('/producto');
     }
 }

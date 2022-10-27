@@ -19,7 +19,10 @@ Route::get('/', function () {
 
 
 //Formularios, envio recepcion
+
 Route::resource('producto', ProductoController::class);
-    
+//Agregar el use para el controlador     
+//esta ruta genera las necesarias para usarlas en el CRUD
+    //Revisar ruta específica con php artisan route:list |grep productos (se muestra la terminacion de la ruta)
 
 

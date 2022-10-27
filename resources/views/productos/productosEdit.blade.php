@@ -7,13 +7,14 @@
     <title>Creacion de productos</title>
 </head>
 <body>
-    <h1>Registrar productos</h1>
-
-    <form action="/producto"  method"post">
+    <h1>Editar productos</h1>
+    
+    <form action="/producto/{{ $producto->id }}" method"POST">
         @csrf
+        @method('patch')
 
         <label for="existencia">Existencia</label>
-        <input type="number" name "existencia" id="existencia">
+        <input type="number" name "existencia" id="existencia" value="{{ $producto->existencia }}">
         <br>
 
         <label for="nombre">Nombre</label>
@@ -28,10 +29,9 @@
         <input type="number" name "precio" id="precio">
         <br>
 
+        <input type="submit" name="editar" value="Editar">
        
-        <input type="submit" name="enviar "value="ENVIAR">
-
-        
     </form>
+   
 </body>
 </html>
