@@ -45,15 +45,13 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        dd($_REQUEST);
         $request -> validate([
             'existencia' => 'required|integer',
-            'nombre' => 'required|max255',
-            'modelo' => ' required|max255',
+            'nombre' => 'required|max:255',
+            'modelo' => ' required|max:255',
             'precio' => 'required|integer',
         ]);
-
+    
 
         Producto::create($request->all());
 
@@ -105,11 +103,11 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        dd($request);
+        
         $request -> validate([
             'existencia' => 'required',
-            'nombre' => 'required|max255',
-            'modelo' => ' required',
+            'nombre' => 'required|max:255',
+            'modelo' => 'required|max:255',
             'precio' => 'required',
         ]);
 
@@ -123,7 +121,7 @@ class ProductoController extends Controller
 
         $producto->save();
 */
-        Producto::where('id', $producto->id)->update($request->except('_token', '_method'));
+        Producto::where('id', $producto->id)->update($request->except('_token', '_method' ,'editar'));
 
         return redirect ('/producto');
 

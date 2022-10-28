@@ -9,23 +9,23 @@
 <body>
     <h1>Registrar productos</h1>
 
-    <form action="/producto"  method"post">
+    <form method="post" action="/producto">
         @csrf
 
         <label for="existencia">Existencia</label>
-        <input type="number" name "existencia" id="existencia">
+        <input type="number" name="existencia" id="existencia">
         <br>
 
         <label for="nombre">Nombre</label>
-        <input type="text" name "nombre" id="nombre">
+        <input type="text" name="nombre" id="nombre">
         <br>
 
         <label for="modelo">modelo</label>
-        <input type="text" name "modelo" id="modelo">
+        <input type="text" name="modelo" id="modelo">
         <br>
 
         <label for="precio">precio</label>
-        <input type="number" name "precio" id="precio">
+        <input type="number" name="precio" id="precio">
         <br>
 
        
