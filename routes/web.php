@@ -26,3 +26,13 @@ Route::resource('producto', ProductoController::class);
     //Revisar ruta específica con php artisan route:list |grep productos (se muestra la terminacion de la ruta)
 
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
