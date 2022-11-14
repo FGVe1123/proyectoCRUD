@@ -17,20 +17,36 @@
         @method('patch')
 
         <label for='existencia'>Existencia</label>
-        <input type="number" name ="existencia" id="existencia" value="{{ $producto->existencia }}">
+        <input type="text" name ="existencia" id="existencia" value="{{ $producto->existencia }}">
         <br>
+
+        @error('existencia')
+        <li>{{ $message }}</li>
+        @enderror
 
         <label for='nombre'>Nombre</label>
         <input type="text" name="nombre" id="nombre" value="{{ $producto->nombre }}">
         <br>
 
+        @error('nombre')
+        <li>{{ $message }}</li>
+        @enderror
+
         <label for='modelo'>modelo</label>
-        <input type="text" name="modelo" id="modelo" value="{{ $producto->modelo }}">
+        <input type="text" name="modelo" id="modelo" value="{{ $producto->modelo }} ">
         <br>
 
+        @error('modelo')
+        <li>{{ $message }}</li>
+        @enderror
+
         <label for='precio'>precio</label>
-        <input type="number" name="precio" id="precio" value="{{ $producto->precio }}">
+        <input type="text" name="precio" id="precio" value="{{ $producto->precio }}"> <!--agregar para lo que se estaba escribiendo?? {{ old('precio') }}-->
         <br>
+
+        @error('precio')
+        <li>{{ $message }}</li>
+        @enderror
 
         <input type="submit" name="editar" value="Editar">
        

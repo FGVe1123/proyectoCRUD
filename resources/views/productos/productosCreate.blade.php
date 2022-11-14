@@ -18,21 +18,34 @@
         @csrf
 
         <label for="existencia">Existencia</label>
-        <input type="number" name="existencia" id="existencia">
+        <input type="number" name="existencia" id="existencia" value="{{ old('existencia') }}">
         <br>
+        @error('existencia')
+        <li>{{ $message }}</li>
+        @enderror
 
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre">
+        <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}">
         <br>
+
+        @error('nombre')
+        <li>{{ $message }}</li>
+        @enderror
 
         <label for="modelo">modelo</label>
-        <input type="text" name="modelo" id="modelo">
+        <input type="text" name="modelo" id="modelo" value="{{ old('modelo') }}">
         <br>
-
+        
+        @error('modelo')
+        <li>{{ $message }}</li>
+        @enderror
         <label for="precio">precio</label>
-        <input type="number" name="precio" id="precio">
+        <input type="number" name="precio" id="precio" value="{{ old('precio') }}">
         <br>
 
+        @error('precio')
+        <li>{{ $message }}</li>
+        @enderror
        
         <input type="submit" name="enviar "value="ENVIAR">
 
