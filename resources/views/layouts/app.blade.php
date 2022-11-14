@@ -30,9 +30,10 @@
                     </div>
                 </header>
             @endif
-
+            <p>a</p>
             <!-- Page Content -->
             <main>
+                
                 {{ $slot }}
             </main>
         </div>

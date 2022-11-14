@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->integer('existencia')->default(0);
+            $table->integer('existencia');
             $table->string('nombre',100);
             $table->string('modelo',50);
-            $table->integer('precio')->default(0);
+            $table->integer('precio');
             
         });
     }

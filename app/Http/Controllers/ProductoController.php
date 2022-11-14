@@ -46,10 +46,10 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'existencia' => 'required|integer',
-            'nombre' => 'required|max:255',
-            'modelo' => ' required|max:255',
-            'precio' => 'required|integer',
+            'existencia' => 'integer',
+            'nombre' => 'required|max:100|min:3',
+            'modelo' => ' required|max:50',
+            'precio' => 'integer',
         ]);
     
 
@@ -105,10 +105,10 @@ class ProductoController extends Controller
     {
         
         $request -> validate([
-            'existencia' => 'required',
-            'nombre' => 'required|max:255',
-            'modelo' => 'required|max:255',
-            'precio' => 'required',
+            'existencia' => 'integer',
+            'nombre' => 'required|max:100|min:3',
+            'modelo' => ' required|max:50',
+            'precio' => 'integer',
         ]);
 
 
