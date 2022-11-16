@@ -144,4 +144,12 @@ class ProductoController extends Controller
 
         return redirect('/producto');
     }
+
+
+    public function __construct()
+        {
+            $this->middleware('auth')->except('index', 'show','borrar');
+        }
+    
+
 }
