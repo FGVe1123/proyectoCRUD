@@ -10,15 +10,13 @@
     <title>productos INDEX</title>
 
     <nav>
-    <div class="nav-wrapper">
-      <a href="/login" class="brand-logo right">Iniciar Sesion</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="producto/create">Regisrar Producto</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
+        <div class="nav-wrapper">
+        <a href="/dashboard" class="brand-logo right">perfil</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="producto/create">Registrar Producto</a></li>        
+        </ul>
+        </div>
+    </nav>
     
 </head>
 <body>

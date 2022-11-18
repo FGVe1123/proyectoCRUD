@@ -5,52 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creacion de productos</title>
-    <div class="nav" >
-        <a href="/producto">Inicio</a>
-    </div>
+    @vite(['resources/css/materialize.css', 'resources/js/materialize.js'])
+    
+    <nav>
+        <div class="nav-wrapper">
+        <a href="/dashboard" class="brand-logo right">perfil</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/producto">Inicio</a></li>
+            <li><a href="producto/create">Registrar Producto</a></li>
+        </ul>
+        </div>
+    </nav>
+    
 </head>
 <body>
-    <h1>Editar productos</h1>
-    
-    <form action="/producto/{{ $producto->id }}" method="POST">
-        @csrf
-        @method('patch')
+<div class="section container" >
 
-        <label for='existencia'>Existencia</label>
-        <input type="text" name ="existencia" id="existencia" value="{{ $producto->existencia }}">
-        <br>
+        <h4>Editar productos</h4>
+        
+        <div class="row" >
+            <form  class="col s12" action="/producto/{{ $producto->id }}" method="POST">
+                @csrf
+                @method('patch')
 
-        @error('existencia')
-        <li>{{ $message }}</li>
-        @enderror
+                <div class="row" >                    
+                    <div class="input-field col s5">
 
-        <label for='nombre'>Nombre</label>
-        <input type="text" name="nombre" id="nombre" value="{{ $producto->nombre }}">
-        <br>
+                        <label for='existencia' class="active">Existencia</label>
+                        <input class="validate" type="text" name ="existencia" id="existencia" value="{{ $producto->existencia }}">
+                            @error('existencia')
+                            <li>{{ $message }}</li>
+                            @enderror
 
-        @error('nombre')
-        <li>{{ $message }}</li>
-        @enderror
+                    </div>
+                </div>
 
-        <label for='modelo'>modelo</label>
-        <input type="text" name="modelo" id="modelo" value="{{ $producto->modelo }} ">
-        <br>
 
-        @error('modelo')
-        <li>{{ $message }}</li>
-        @enderror
+                <div class="row">
+                        <div class="input-field col s5">
+                            <label for='nombre' class="active">Nombre</label>
+                            <input class="validate" type="text" name="nombre" id="nombre" value="{{ $producto->nombre }}">
+                            <br>
 
-        <label for='precio'>precio</label>
-        <input type="text" name="precio" id="precio" value="{{ $producto->precio }}"> <!--agregar para lo que se estaba escribiendo?? {{ old('precio') }}-->
-        <br>
+                            @error('nombre')
+                            <li>{{ $message }}</li>
+                            @enderror
 
-        @error('precio')
-        <li>{{ $message }}</li>
-        @enderror
 
-        <input type="submit" name="editar" value="Editar">
-       
-    </form>
-   
+                        </div>
+                </div>
+                        
+                <div class="row">
+                        <div class="input-field col s5">        
+
+                            <label for='modelo' class="active">modelo</label>
+                            <input class="validate" type="text" name="modelo" id="modelo" value="{{ $producto->modelo }} ">
+                            <br>
+
+                            @error('modelo')
+                            <li>{{ $message }}</li>
+                            @enderror
+
+                        </div>
+                </div>
+
+                <div class="row">
+                        <div class="input-field col s5">               
+                            <label for='precio' class="active">precio</label>
+                            <input class="validate" type="text" name="precio" id="precio" value="{{ $producto->precio }}"> <!--agregar para lo que se estaba escribiendo?? {{ old('precio') }}-->
+                            <br>
+
+                            @error('precio')
+                            <li>{{ $message }}</li>
+                            @enderror
+                        </div>
+                </div>
+                    
+                <input class="btn waves-effect waves-teal" type="submit" name="enviar">
+                
+            </form>
+        </div>   
 </body>
 </html>

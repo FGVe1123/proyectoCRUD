@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //Formularios, envio recepcion
 
 Route::resource('producto', ProductoController::class);
@@ -24,6 +25,14 @@ Route::resource('producto', ProductoController::class);
 //esta ruta genera las necesarias para usarlas en el CRUD
     //Revisar ruta específica con php artisan route:list |grep productos (se muestra la terminacion de la ruta)
 
-
-
+    //jetstream
+    Route::middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified'
+    ])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+    });
 

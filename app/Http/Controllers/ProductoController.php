@@ -52,7 +52,7 @@ class ProductoController extends Controller
             'precio' => 'integer',
         ]);
     
-
+        
         Producto::create($request->all());
 
         return redirect('/producto');
@@ -111,17 +111,7 @@ class ProductoController extends Controller
             'precio' => 'integer',
         ]);
 
-
-/*  
-        
-        $producto->existencia = $request->existencia;
-        $producto-> nombre= $request->nombre;
-        $producto-> modelo= $request->modelo;
-        $producto-> precio= $request->precio;
-
-        $producto->save();
-*/
-        Producto::where('id', $producto->id)->update($request->except('_token', '_method' ,'editar'));
+        Producto::where('id', $producto->id)->update($request->except('_token', '_method' ,'editar', 'enviar'));
 
         return redirect ('/producto');
 
@@ -148,7 +138,7 @@ class ProductoController extends Controller
 
     public function __construct()
         {
-            $this->middleware('auth')->except('index', 'show','borrar');
+            $this->middleware('auth')->except('index', 'show');
         }
     
 

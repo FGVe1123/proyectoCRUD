@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('existencia');
             $table->string('nombre',100);
             $table->string('modelo',50);
-            $table->integer('precio');
+            $table->integer('precio')->default;
             
         });
     }
